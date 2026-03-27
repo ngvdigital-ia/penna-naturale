@@ -12,239 +12,368 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px;-webkit-text-size-adjust:100%}
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-background:#1a1a1a;
-color:#333;
-min-height:100vh;
-min-height:100dvh;
--webkit-font-smoothing:antialiased;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:#0d0906;
+  color:#3a3330;
+  min-height:100vh;
+  min-height:100dvh;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 
-/* ===== HERO IMAGE AREA ===== */
+/* ===== HERO — warm atmospheric depth ===== */
 .hero{
-position:relative;
-width:100%;
-height:220px;
-background:linear-gradient(135deg,#1a0f0a 0%,#3d2415 40%,#2a1810 70%,#0f0a07 100%);
-overflow:hidden;
+  position:relative;
+  width:100%;
+  height:240px;
+  background:#0d0906;
+  overflow:hidden;
 }
-.hero::before{
-content:"";
-position:absolute;
-top:20px;right:20px;
-width:200px;height:180px;
-background:radial-gradient(ellipse at center,rgba(180,120,60,0.3) 0%,transparent 70%);
-pointer-events:none;
+
+/* layered warm light orbs for product-shot atmosphere */
+.hero-glow{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(1px);
 }
+.hero-glow--amber{
+  width:280px;height:280px;
+  top:-40px;right:-60px;
+  background:radial-gradient(circle,rgba(180,120,40,0.45) 0%,rgba(160,100,30,0.2) 35%,transparent 70%);
+}
+.hero-glow--gold{
+  width:180px;height:180px;
+  top:20px;right:40px;
+  background:radial-gradient(circle,rgba(220,175,80,0.3) 0%,rgba(200,150,60,0.1) 40%,transparent 70%);
+}
+.hero-glow--warm{
+  width:240px;height:200px;
+  top:60px;left:-40px;
+  background:radial-gradient(ellipse,rgba(140,80,30,0.2) 0%,transparent 65%);
+}
+.hero-glow--accent{
+  width:100px;height:100px;
+  top:30px;right:120px;
+  background:radial-gradient(circle,rgba(255,200,100,0.2) 0%,transparent 70%);
+}
+
+/* subtle grain overlay */
 .hero::after{
-content:"";
-position:absolute;
-top:30px;left:30px;
-width:120px;height:100px;
-background:radial-gradient(ellipse at center,rgba(200,160,80,0.15) 0%,transparent 70%);
-pointer-events:none;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.6;
+  pointer-events:none;
 }
+
+/* elegant stacked brand in top-right */
 .hero-brand{
-position:absolute;
-top:24px;right:20px;
-text-align:right;
-z-index:2;
+  position:absolute;
+  top:28px;right:24px;
+  text-align:right;
+  z-index:2;
 }
 .hero-brand-name{
-font-size:1.3rem;
-font-weight:700;
-color:rgba(255,255,255,0.9);
-line-height:1.15;
-text-shadow:0 2px 12px rgba(0,0,0,0.5);
-font-style:italic;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.45rem;
+  font-weight:400;
+  font-style:italic;
+  color:rgba(255,245,230,0.88);
+  line-height:1.12;
+  text-shadow:0 2px 20px rgba(180,120,40,0.4),0 1px 4px rgba(0,0,0,0.5);
+  letter-spacing:0.5px;
 }
 .hero-brand-sub{
-font-size:.7rem;
-color:rgba(255,255,255,0.5);
-font-weight:400;
-letter-spacing:1px;
-text-transform:uppercase;
-margin-top:2px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:.58rem;
+  color:rgba(220,185,130,0.5);
+  font-weight:500;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-top:6px;
+}
+
+/* decorative gold line accent */
+.hero-line{
+  position:absolute;
+  bottom:60px;left:28px;
+  width:40px;height:1px;
+  background:linear-gradient(90deg,rgba(200,160,70,0.4),transparent);
+  z-index:2;
 }
 
 /* ===== FORM CARD ===== */
 .form-card{
-position:relative;
-z-index:3;
-width:100%;
-max-width:480px;
-margin:-40px auto 0;
-background:#fff;
-border-radius:20px 20px 0 0;
-padding:32px 28px 36px;
-min-height:calc(100vh - 180px);
+  position:relative;
+  z-index:3;
+  width:100%;
+  max-width:460px;
+  margin:-44px auto 0;
+  background:#fff;
+  border-radius:22px 22px 0 0;
+  padding:36px 30px 40px;
+  min-height:calc(100vh - 196px);
+  box-shadow:0 -8px 40px rgba(0,0,0,0.15);
 }
 @media(min-width:520px){
-.form-card{
-border-radius:20px;
-margin:-40px auto 40px;
-min-height:unset;
-box-shadow:0 20px 60px rgba(0,0,0,0.3);
-}
+  .form-card{
+    border-radius:22px;
+    margin:-44px auto 0;
+    min-height:unset;
+    box-shadow:0 24px 80px rgba(0,0,0,0.25),0 -4px 20px rgba(0,0,0,0.1);
+  }
 }
 
 .form-title{
-font-size:1.4rem;
-font-weight:600;
-color:#1a1a1a;
-text-align:center;
-margin-bottom:28px;
-letter-spacing:-0.2px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.5rem;
+  font-weight:400;
+  color:#1a1714;
+  text-align:center;
+  margin-bottom:32px;
+  letter-spacing:0.3px;
 }
 
-/* ===== FIELDS — underline style ===== */
+/* ===== FIELDS — refined underline ===== */
 .field{
-margin-bottom:22px;
+  margin-bottom:24px;
+  opacity:0;
+  transform:translateY(12px);
+  animation:fieldIn .5s ease forwards;
 }
+.field:nth-child(1){animation-delay:.1s}
+.field:nth-child(2){animation-delay:.18s}
+.field:nth-child(3){animation-delay:.26s}
+.field:nth-child(4){animation-delay:.34s}
+.field:nth-child(5){animation-delay:.42s}
+
+@keyframes fieldIn{
+  to{opacity:1;transform:translateY(0)}
+}
+
 .field-label{
-display:block;
-font-size:.8rem;
-font-weight:500;
-color:#888;
-margin-bottom:2px;
+  display:block;
+  font-size:.78rem;
+  font-weight:500;
+  color:#9a938d;
+  margin-bottom:4px;
+  letter-spacing:0.2px;
 }
+
 .field-row{
-display:flex;
-align-items:center;
-gap:12px;
-padding:10px 0;
-border-bottom:1px solid #e0e0e0;
-transition:border-color .2s;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:11px 0 10px;
+  border-bottom:1.5px solid #e8e4e0;
+  position:relative;
+  transition:border-color .3s ease;
+}
+
+/* animated accent underline */
+.field-row::after{
+  content:"";
+  position:absolute;
+  bottom:-1.5px;left:0;
+  width:0;
+  height:1.5px;
+  background:linear-gradient(90deg,#a0785a,#c4956e);
+  transition:width .35s cubic-bezier(.4,0,.2,1);
+}
+.field-row:focus-within::after{
+  width:100%;
 }
 .field-row:focus-within{
-border-color:#9b59b6;
-}
-.field-icon{
-width:18px;
-height:18px;
-color:#aaa;
-flex-shrink:0;
-}
-.field-row input,
-.field-row select{
-flex:1;
-font-family:inherit;
-font-size:.95rem;
-color:#333;
-background:transparent;
-border:none;
-outline:none;
-padding:2px 0;
--webkit-appearance:none;
-appearance:none;
-}
-.field-row input::placeholder{
-color:#bbb;
-}
-.field-row select{
-cursor:pointer;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23aaa' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-background-repeat:no-repeat;
-background-position:right 0 center;
-padding-right:20px;
-}
-.field-row select option{
-color:#333;
+  border-color:transparent;
 }
 
-/* ===== FOOTER LINK + CTA ===== */
+.field-icon{
+  width:17px;
+  height:17px;
+  color:#b5ada6;
+  flex-shrink:0;
+  transition:color .3s;
+}
+.field-row:focus-within .field-icon{
+  color:#a0785a;
+}
+
+.field-row input,
+.field-row select{
+  flex:1;
+  font-family:inherit;
+  font-size:.92rem;
+  color:#2c2622;
+  background:transparent;
+  border:none;
+  outline:none;
+  padding:2px 0;
+  -webkit-appearance:none;
+  appearance:none;
+  letter-spacing:0.1px;
+}
+.field-row input::placeholder{
+  color:#c4bdb6;
+  font-weight:400;
+}
+.field-row select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23b5ada6' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 0 center;
+  padding-right:18px;
+}
+
+/* ===== LOGIN LINK + CTA ===== */
 .form-login{
-text-align:center;
-margin-top:28px;
-margin-bottom:16px;
-font-size:.82rem;
-color:#999;
+  text-align:center;
+  margin-top:30px;
+  margin-bottom:16px;
+  font-size:.8rem;
+  color:#a8a19a;
 }
 .form-login a{
-color:#9b59b6;
-text-decoration:none;
-font-weight:500;
+  color:#a0785a;
+  text-decoration:none;
+  font-weight:500;
+  transition:color .2s;
 }
 .form-login a:hover{
-text-decoration:underline;
+  color:#8a6248;
+  text-decoration:underline;
 }
 
 .cta-btn{
-display:block;
-width:100%;
-padding:15px 24px;
-font-family:inherit;
-font-size:.95rem;
-font-weight:600;
-color:#fff;
-background:linear-gradient(135deg,#9b59b6 0%,#d653a0 50%,#e74c8b 100%);
-border:none;
-border-radius:10px;
-cursor:pointer;
-transition:opacity .15s,transform .15s;
-letter-spacing:0.3px;
+  display:block;
+  width:100%;
+  padding:15px 24px;
+  font-family:inherit;
+  font-size:.92rem;
+  font-weight:600;
+  color:#fff;
+  background:linear-gradient(135deg,#9b6bb5 0%,#c25a94 45%,#d94e82 100%);
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .2s cubic-bezier(.4,0,.2,1),box-shadow .2s;
+  letter-spacing:0.4px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(180,80,130,0.25);
+}
+/* subtle shine sweep */
+.cta-btn::before{
+  content:"";
+  position:absolute;
+  top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+  transition:left .6s ease;
+}
+.cta-btn:hover::before{
+  left:120%;
 }
 .cta-btn:hover{
-opacity:.92;
-transform:translateY(-1px);
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(180,80,130,0.35);
 }
 .cta-btn:active{
-transform:translateY(0);
-opacity:1;
+  transform:translateY(0);
+  box-shadow:0 4px 20px rgba(180,80,130,0.25);
 }
 
 /* ===== BOTTOM BAR ===== */
 .bottom-bar{
-background:#1a1a1a;
-text-align:center;
-padding:14px 20px;
-font-size:.7rem;
-color:rgba(255,255,255,0.35);
-letter-spacing:0.5px;
+  background:#0d0906;
+  text-align:center;
+  padding:16px 20px;
+  font-size:.68rem;
+  color:rgba(200,185,170,0.3);
+  letter-spacing:0.8px;
+  font-weight:400;
 }
 .bottom-bar svg{
-width:10px;height:10px;
-vertical-align:middle;
-margin-right:4px;
-fill:rgba(255,255,255,0.35);
+  width:10px;height:10px;
+  vertical-align:middle;
+  margin-right:5px;
+  fill:rgba(200,185,170,0.3);
 }
 @media(min-width:520px){
-.bottom-bar{
-margin-top:auto;
-}
+  .bottom-bar{
+    padding:20px;
+    margin-top:40px;
+  }
 }
 
 /* ===== LOADING ===== */
 .cta-btn.loading{
-pointer-events:none;
-opacity:.75;
+  pointer-events:none;
+  opacity:.75;
 }
+.cta-btn.loading::before{display:none}
 .cta-btn.loading::after{
-content:"";
-display:inline-block;
-width:16px;height:16px;
-margin-left:8px;
-border:2px solid rgba(255,255,255,0.3);
-border-top-color:#fff;
-border-radius:50%;
-animation:spin .6s linear infinite;
-vertical-align:middle;
+  content:"";
+  display:inline-block;
+  width:16px;height:16px;
+  margin-left:8px;
+  border:2px solid rgba(255,255,255,0.3);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:spin .6s linear infinite;
+  vertical-align:middle;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ===== VALIDATION ===== */
 .field-error .field-row{
-border-color:#e74c3c;
+  border-color:#d4483b;
+}
+.field-error .field-row::after{
+  background:#d4483b;
+  width:100%;
 }
 .field-error .field-label{
-color:#e74c3c;
+  color:#d4483b;
+}
+.field-error .field-icon{
+  color:#d4483b;
+}
+
+/* ===== PAGE LOAD ===== */
+.hero{
+  animation:heroFade .8s ease;
+}
+@keyframes heroFade{
+  from{opacity:0}to{opacity:1}
+}
+.form-card{
+  animation:cardSlide .6s cubic-bezier(.4,0,.2,1) .15s both;
+}
+@keyframes cardSlide{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.form-title{
+  opacity:0;
+  animation:titleIn .5s ease .35s forwards;
+}
+@keyframes titleIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- HERO — atmospheric warm light -->
 <div class="hero">
+  <div class="hero-glow hero-glow--amber"></div>
+  <div class="hero-glow hero-glow--gold"></div>
+  <div class="hero-glow hero-glow--warm"></div>
+  <div class="hero-glow hero-glow--accent"></div>
+  <div class="hero-line"></div>
   <div class="hero-brand">
     <div class="hero-brand-name">Penna<br>Naturale<br>App</div>
     <div class="hero-brand-sub">Il tuo piano</div>
@@ -261,7 +390,7 @@ color:#e74c3c;
     <div class="field" id="f-email">
       <label class="field-label">Email</label>
       <div class="field-row">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         <input type="email" id="email" name="email" placeholder="esempio@email.com" required autocomplete="email">
       </div>
     </div>
@@ -270,7 +399,7 @@ color:#e74c3c;
     <div class="field" id="f-gender">
       <label class="field-label">Qual &egrave; il tuo sesso?</label>
       <div class="field-row">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <select id="gender" name="gender" required>
           <option value="" disabled selected>Seleziona...</option>
           <option value="donna">Donna</option>
@@ -279,11 +408,11 @@ color:#e74c3c;
       </div>
     </div>
 
-    <!-- Fascia d'età -->
+    <!-- Fascia d'eta -->
     <div class="field" id="f-age">
       <label class="field-label">Qual &egrave; la tua fascia d'et&agrave;?</label>
       <div class="field-row">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <select id="age" name="age" required>
           <option value="" disabled selected>Seleziona...</option>
           <option value="18-24">18 - 24</option>
@@ -300,7 +429,7 @@ color:#e74c3c;
     <div class="field" id="f-weight">
       <label class="field-label">Qual &egrave; il tuo peso attuale?</label>
       <div class="field-row">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h12"/><path d="M12 18V6"/><path d="m8 10 4-4 4 4"/></svg>
         <select id="weight" name="weight" required>
           <option value="" disabled selected>Seleziona...</option>
           <option value="45-54">45 - 54 kg</option>
@@ -314,11 +443,11 @@ color:#e74c3c;
       </div>
     </div>
 
-    <!-- Attività fisica -->
+    <!-- Attivita fisica -->
     <div class="field" id="f-activity">
       <label class="field-label">Qual &egrave; il tuo livello di attivit&agrave; fisica quotidiana?</label>
       <div class="field-row">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         <select id="activity" name="activity" required>
           <option value="" disabled selected>Seleziona...</option>
           <option value="nessuna">Nessuna</option>
