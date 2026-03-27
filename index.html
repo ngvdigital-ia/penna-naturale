@@ -4,106 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Penna Naturale App - Il tuo piano personalizzato</title>
-<meta name="description" content="Crea il tuo piano personalizzato per perdere peso in modo naturale con l'App Penna Naturale. Scopri la formula su misura per il tuo corpo.">
+<meta name="description" content="Crea il tuo piano personalizzato per perdere peso in modo naturale con l'App Penna Naturale.">
 <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#0c0a14;
---card:#ffffff;
---card-border:rgba(255,255,255,0.06);
---accent:#9b59b6;
---accent-hover:#8e44ad;
---accent-gradient:linear-gradient(135deg,#9b59b6 0%,#e74c8b 100%);
---accent-glow:rgba(155,89,182,0.35);
---text:#1a1a2e;
---text-secondary:#6b7280;
---text-light:#9ca3af;
---input-bg:#f9fafb;
---input-border:#e5e7eb;
---input-focus:#9b59b6;
---radius:12px;
---shadow:0 25px 60px rgba(0,0,0,0.4);
-}
-html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{font-size:16px;-webkit-text-size-adjust:100%}
 body{
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-background:var(--bg);
-color:var(--text);
+background:#1a1a1a;
+color:#333;
 min-height:100vh;
 min-height:100dvh;
-display:flex;
-flex-direction:column;
-align-items:center;
 -webkit-font-smoothing:antialiased;
-overflow-x:hidden;
 }
 
-/* ===== HERO BG ===== */
-.hero-bg{
+/* ===== HERO IMAGE AREA ===== */
+.hero{
 position:relative;
 width:100%;
-min-height:260px;
-background:linear-gradient(165deg,#1a0e2e 0%,#2d1b4e 30%,#0c0a14 100%);
-display:flex;
-align-items:flex-end;
-justify-content:center;
+height:220px;
+background:linear-gradient(135deg,#1a0f0a 0%,#3d2415 40%,#2a1810 70%,#0f0a07 100%);
 overflow:hidden;
 }
-.hero-bg::before{
+.hero::before{
 content:"";
 position:absolute;
-top:-60px;right:-40px;
-width:300px;height:300px;
-background:radial-gradient(circle,rgba(155,89,182,0.25) 0%,transparent 70%);
+top:20px;right:20px;
+width:200px;height:180px;
+background:radial-gradient(ellipse at center,rgba(180,120,60,0.3) 0%,transparent 70%);
 pointer-events:none;
 }
-.hero-bg::after{
+.hero::after{
 content:"";
 position:absolute;
-bottom:0;left:0;right:0;
-height:120px;
-background:linear-gradient(to top,var(--bg),transparent);
+top:30px;left:30px;
+width:120px;height:100px;
+background:radial-gradient(ellipse at center,rgba(200,160,80,0.15) 0%,transparent 70%);
 pointer-events:none;
 }
-
-/* ===== BRANDING ===== */
-.brand-block{
-position:relative;
+.hero-brand{
+position:absolute;
+top:24px;right:20px;
+text-align:right;
 z-index:2;
-text-align:center;
-padding:48px 24px 60px;
 }
-.brand-icon{
-width:72px;height:72px;
-border-radius:18px;
-background:var(--accent-gradient);
-display:flex;align-items:center;justify-content:center;
-margin:0 auto 16px;
-box-shadow:0 8px 32px var(--accent-glow);
+.hero-brand-name{
+font-size:1.3rem;
+font-weight:700;
+color:rgba(255,255,255,0.9);
+line-height:1.15;
+text-shadow:0 2px 12px rgba(0,0,0,0.5);
+font-style:italic;
 }
-.brand-icon svg{width:36px;height:36px;fill:#fff}
-.brand-name{
-font-size:1.5rem;
-font-weight:800;
-color:#fff;
-letter-spacing:-0.5px;
-line-height:1.2;
-}
-.brand-name span{
-background:var(--accent-gradient);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-background-clip:text;
-}
-.brand-tagline{
-font-size:.85rem;
+.hero-brand-sub{
+font-size:.7rem;
 color:rgba(255,255,255,0.5);
-margin-top:6px;
 font-weight:400;
-letter-spacing:0.3px;
+letter-spacing:1px;
+text-transform:uppercase;
+margin-top:2px;
 }
 
 /* ===== FORM CARD ===== */
@@ -111,216 +72,158 @@ letter-spacing:0.3px;
 position:relative;
 z-index:3;
 width:100%;
-max-width:440px;
-background:var(--card);
-border-radius:24px 24px 0 0;
-margin-top:-32px;
-padding:36px 24px 40px;
-box-shadow:var(--shadow);
-flex:1;
+max-width:480px;
+margin:-40px auto 0;
+background:#fff;
+border-radius:20px 20px 0 0;
+padding:32px 28px 36px;
+min-height:calc(100vh - 180px);
 }
-@media(min-width:500px){
+@media(min-width:520px){
 .form-card{
-border-radius:24px;
-margin-top:-32px;
-margin-bottom:40px;
-flex:unset;
+border-radius:20px;
+margin:-40px auto 40px;
+min-height:unset;
+box-shadow:0 20px 60px rgba(0,0,0,0.3);
 }
 }
 
 .form-title{
-font-size:1.45rem;
-font-weight:700;
-color:var(--text);
-text-align:center;
-margin-bottom:4px;
-letter-spacing:-0.3px;
-}
-.form-subtitle{
-font-size:.85rem;
-color:var(--text-secondary);
+font-size:1.4rem;
+font-weight:600;
+color:#1a1a1a;
 text-align:center;
 margin-bottom:28px;
-line-height:1.5;
+letter-spacing:-0.2px;
 }
 
-/* ===== FORM FIELDS ===== */
-.field{margin-bottom:20px}
+/* ===== FIELDS — underline style ===== */
+.field{
+margin-bottom:22px;
+}
 .field-label{
 display:block;
-font-size:.78rem;
-font-weight:600;
-color:var(--text-secondary);
-margin-bottom:6px;
-text-transform:uppercase;
-letter-spacing:0.5px;
+font-size:.8rem;
+font-weight:500;
+color:#888;
+margin-bottom:2px;
 }
-.field-input-wrap{
-position:relative;
+.field-row{
+display:flex;
+align-items:center;
+gap:12px;
+padding:10px 0;
+border-bottom:1px solid #e0e0e0;
+transition:border-color .2s;
+}
+.field-row:focus-within{
+border-color:#9b59b6;
 }
 .field-icon{
-position:absolute;
-left:14px;top:50%;
-transform:translateY(-50%);
-width:18px;height:18px;
-color:var(--text-light);
-pointer-events:none;
+width:18px;
+height:18px;
+color:#aaa;
+flex-shrink:0;
 }
-.field-input-wrap input,
-.field-input-wrap select{
-width:100%;
-padding:14px 14px 14px 44px;
+.field-row input,
+.field-row select{
+flex:1;
 font-family:inherit;
 font-size:.95rem;
-color:var(--text);
-background:var(--input-bg);
-border:1.5px solid var(--input-border);
-border-radius:var(--radius);
+color:#333;
+background:transparent;
+border:none;
 outline:none;
-transition:border-color .2s,box-shadow .2s;
+padding:2px 0;
 -webkit-appearance:none;
 appearance:none;
 }
-.field-input-wrap input::placeholder{color:var(--text-light)}
-.field-input-wrap input:focus,
-.field-input-wrap select:focus{
-border-color:var(--input-focus);
-box-shadow:0 0 0 3px rgba(155,89,182,0.12);
+.field-row input::placeholder{
+color:#bbb;
 }
-.field-input-wrap select{
+.field-row select{
 cursor:pointer;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23aaa' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
 background-repeat:no-repeat;
-background-position:right 14px center;
-padding-right:38px;
+background-position:right 0 center;
+padding-right:20px;
+}
+.field-row select option{
+color:#333;
 }
 
-/* ===== GENDER SELECT ===== */
-.gender-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+/* ===== FOOTER LINK + CTA ===== */
+.form-login{
+text-align:center;
+margin-top:28px;
+margin-bottom:16px;
+font-size:.82rem;
+color:#999;
 }
-.gender-card{
-position:relative;
-cursor:pointer;
+.form-login a{
+color:#9b59b6;
+text-decoration:none;
+font-weight:500;
 }
-.gender-card input{
-position:absolute;
-opacity:0;
-width:0;height:0;
-}
-.gender-card-inner{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:8px;
-padding:18px 12px;
-background:var(--input-bg);
-border:1.5px solid var(--input-border);
-border-radius:var(--radius);
-transition:all .2s;
-}
-.gender-card:hover .gender-card-inner{
-border-color:var(--accent);
-}
-.gender-card input:checked + .gender-card-inner{
-border-color:var(--accent);
-background:rgba(155,89,182,0.06);
-box-shadow:0 0 0 3px rgba(155,89,182,0.12);
-}
-.gender-card-inner svg{
-width:28px;height:28px;
-color:var(--text-light);
-transition:color .2s;
-}
-.gender-card input:checked + .gender-card-inner svg{
-color:var(--accent);
-}
-.gender-card-inner span{
-font-size:.85rem;
-font-weight:600;
-color:var(--text-secondary);
-transition:color .2s;
-}
-.gender-card input:checked + .gender-card-inner span{
-color:var(--accent);
+.form-login a:hover{
+text-decoration:underline;
 }
 
-/* ===== CTA BUTTON ===== */
 .cta-btn{
 display:block;
 width:100%;
-padding:16px 24px;
-margin-top:28px;
+padding:15px 24px;
 font-family:inherit;
-font-size:1.05rem;
-font-weight:700;
+font-size:.95rem;
+font-weight:600;
 color:#fff;
-background:var(--accent-gradient);
+background:linear-gradient(135deg,#9b59b6 0%,#d653a0 50%,#e74c8b 100%);
 border:none;
-border-radius:var(--radius);
+border-radius:10px;
 cursor:pointer;
-transition:transform .15s,box-shadow .15s;
-box-shadow:0 6px 24px var(--accent-glow);
-letter-spacing:0.2px;
+transition:opacity .15s,transform .15s;
+letter-spacing:0.3px;
 }
 .cta-btn:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 32px var(--accent-glow);
+opacity:.92;
+transform:translateY(-1px);
 }
 .cta-btn:active{
 transform:translateY(0);
+opacity:1;
 }
 
-/* ===== FOOTER LINK ===== */
-.form-footer{
+/* ===== BOTTOM BAR ===== */
+.bottom-bar{
+background:#1a1a1a;
 text-align:center;
-margin-top:20px;
-font-size:.82rem;
-color:var(--text-light);
+padding:14px 20px;
+font-size:.7rem;
+color:rgba(255,255,255,0.35);
+letter-spacing:0.5px;
 }
-.form-footer a{
-color:var(--accent);
-text-decoration:none;
-font-weight:600;
+.bottom-bar svg{
+width:10px;height:10px;
+vertical-align:middle;
+margin-right:4px;
+fill:rgba(255,255,255,0.35);
 }
-.form-footer a:hover{text-decoration:underline}
-
-/* ===== TRUST BADGES ===== */
-.trust-row{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:16px;
-margin-top:24px;
-padding-top:20px;
-border-top:1px solid var(--input-border);
+@media(min-width:520px){
+.bottom-bar{
+margin-top:auto;
 }
-.trust-item{
-display:flex;
-align-items:center;
-gap:5px;
-font-size:.72rem;
-color:var(--text-light);
-font-weight:500;
-}
-.trust-item svg{
-width:14px;height:14px;
-color:var(--accent);
-flex-shrink:0;
 }
 
-/* ===== LOADING STATE ===== */
+/* ===== LOADING ===== */
 .cta-btn.loading{
 pointer-events:none;
-opacity:.8;
+opacity:.75;
 }
 .cta-btn.loading::after{
 content:"";
 display:inline-block;
-width:18px;height:18px;
-margin-left:10px;
+width:16px;height:16px;
+margin-left:8px;
 border:2px solid rgba(255,255,255,0.3);
 border-top-color:#fff;
 border-radius:50%;
@@ -330,87 +233,74 @@ vertical-align:middle;
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ===== VALIDATION ===== */
-.field-error .field-input-wrap input,
-.field-error .field-input-wrap select{
-border-color:#ef4444;
+.field-error .field-row{
+border-color:#e74c3c;
 }
 .field-error .field-label{
-color:#ef4444;
+color:#e74c3c;
 }
 </style>
 </head>
 <body>
 
-<!-- HERO BACKGROUND + BRANDING -->
-<div class="hero-bg">
-  <div class="brand-block">
-    <div class="brand-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-    </div>
-    <h1 class="brand-name"><span>Penna Naturale</span></h1>
-    <p class="brand-tagline">Il tuo piano dimagrante personalizzato</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-brand">
+    <div class="hero-brand-name">Penna<br>Naturale<br>App</div>
+    <div class="hero-brand-sub">Il tuo piano</div>
   </div>
 </div>
 
 <!-- FORM CARD -->
 <div class="form-card">
-  <h2 class="form-title">Crea il tuo profilo</h2>
-  <p class="form-subtitle">Inserisci i tuoi dati per ricevere la formula personalizzata del Mounjaro Naturale</p>
+  <h1 class="form-title">Iscriviti</h1>
 
   <form id="signupForm" novalidate>
 
     <!-- Email -->
     <div class="field" id="f-email">
-      <label class="field-label" for="email">Email</label>
-      <div class="field-input-wrap">
+      <label class="field-label">Email</label>
+      <div class="field-row">
         <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         <input type="email" id="email" name="email" placeholder="esempio@email.com" required autocomplete="email">
       </div>
     </div>
 
-    <!-- Sesso / Gender -->
+    <!-- Sesso -->
     <div class="field" id="f-gender">
-      <label class="field-label">Sesso</label>
-      <div class="gender-row">
-        <label class="gender-card">
-          <input type="radio" name="gender" value="donna" required>
-          <div class="gender-card-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8"/><path d="M9 18h6"/></svg>
-            <span>Donna</span>
-          </div>
-        </label>
-        <label class="gender-card">
-          <input type="radio" name="gender" value="uomo">
-          <div class="gender-card-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="14" r="5"/><path d="M19 5l-5.4 5.4"/><path d="M15 5h4v4"/></svg>
-            <span>Uomo</span>
-          </div>
-        </label>
+      <label class="field-label">Qual &egrave; il tuo sesso?</label>
+      <div class="field-row">
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Seleziona...</option>
+          <option value="donna">Donna</option>
+          <option value="uomo">Uomo</option>
+        </select>
       </div>
     </div>
 
     <!-- Fascia d'età -->
     <div class="field" id="f-age">
-      <label class="field-label" for="age">Qual è la tua fascia d'età?</label>
-      <div class="field-input-wrap">
+      <label class="field-label">Qual &egrave; la tua fascia d'et&agrave;?</label>
+      <div class="field-row">
         <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <select id="age" name="age" required>
           <option value="" disabled selected>Seleziona...</option>
-          <option value="18-24">18 - 24 anni</option>
-          <option value="25-34">25 - 34 anni</option>
-          <option value="35-44">35 - 44 anni</option>
-          <option value="45-54">45 - 54 anni</option>
-          <option value="55-64">55 - 64 anni</option>
-          <option value="65+">65+ anni</option>
+          <option value="18-24">18 - 24</option>
+          <option value="25-34">25 - 34</option>
+          <option value="35-44">35 - 44</option>
+          <option value="45-54">45 - 54</option>
+          <option value="55-64">55 - 64</option>
+          <option value="65+">65+</option>
         </select>
       </div>
     </div>
 
     <!-- Peso attuale -->
     <div class="field" id="f-weight">
-      <label class="field-label" for="weight">Qual è il tuo peso attuale?</label>
-      <div class="field-input-wrap">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 3"/></svg>
+      <label class="field-label">Qual &egrave; il tuo peso attuale?</label>
+      <div class="field-row">
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <select id="weight" name="weight" required>
           <option value="" disabled selected>Seleziona...</option>
           <option value="45-54">45 - 54 kg</option>
@@ -424,11 +314,11 @@ color:#ef4444;
       </div>
     </div>
 
-    <!-- Livello di attività fisica -->
+    <!-- Attività fisica -->
     <div class="field" id="f-activity">
-      <label class="field-label" for="activity">Livello di attività fisica quotidiana?</label>
-      <div class="field-input-wrap">
-        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+      <label class="field-label">Qual &egrave; il tuo livello di attivit&agrave; fisica quotidiana?</label>
+      <div class="field-row">
+        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <select id="activity" name="activity" required>
           <option value="" disabled selected>Seleziona...</option>
           <option value="nessuna">Nessuna</option>
@@ -439,28 +329,19 @@ color:#ef4444;
       </div>
     </div>
 
+    <!-- Login link -->
+    <p class="form-login">Hai gi&agrave; un account? <a href="#">Accedi qui</a></p>
+
     <!-- CTA -->
-    <button type="submit" class="cta-btn" id="ctaBtn">Crea il mio piano personalizzato</button>
-
-    <p class="form-footer">Hai già un account? <a href="#">Accedi qui</a></p>
-
-    <!-- Trust -->
-    <div class="trust-row">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>100% sicuro</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-        <span>2 minuti</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-        <span>Personalizzato</span>
-      </div>
-    </div>
+    <button type="submit" class="cta-btn" id="ctaBtn">Crea un account</button>
 
   </form>
+</div>
+
+<!-- Bottom bar -->
+<div class="bottom-bar">
+  <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+  penna-naturale.vercel.app
 </div>
 
 <script>
@@ -472,66 +353,41 @@ color:#ef4444;
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var valid=true;
+    fields.forEach(function(id){document.getElementById(id).classList.remove('field-error')});
 
-    // Reset
-    fields.forEach(function(id){
-      document.getElementById(id).classList.remove('field-error');
-    });
-
-    // Validate email
     var email=document.getElementById('email');
     if(!email.value||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
-      document.getElementById('f-email').classList.add('field-error');
-      valid=false;
+      document.getElementById('f-email').classList.add('field-error');valid=false;
     }
-
-    // Validate gender
-    var genderChecked=document.querySelector('input[name="gender"]:checked');
-    if(!genderChecked){
-      document.getElementById('f-gender').classList.add('field-error');
-      valid=false;
-    }
-
-    // Validate selects
-    ['age','weight','activity'].forEach(function(name){
-      var el=document.getElementById(name);
-      if(!el.value){
-        document.getElementById('f-'+name).classList.add('field-error');
-        valid=false;
+    ['gender','age','weight','activity'].forEach(function(name){
+      if(!document.getElementById(name).value){
+        document.getElementById('f-'+name).classList.add('field-error');valid=false;
       }
     });
 
     if(!valid){
-      var firstError=document.querySelector('.field-error');
-      if(firstError) firstError.scrollIntoView({behavior:'smooth',block:'center'});
+      var fe=document.querySelector('.field-error');
+      if(fe) fe.scrollIntoView({behavior:'smooth',block:'center'});
       return;
     }
 
-    // Loading state
     btn.classList.add('loading');
     btn.textContent='Creazione in corso...';
 
-    // Collect data
     var data={
       email:email.value,
-      gender:genderChecked.value,
+      gender:document.getElementById('gender').value,
       age:document.getElementById('age').value,
       weight:document.getElementById('weight').value,
       activity:document.getElementById('activity').value
     };
 
-    // Build UTM query string
     var params=new URLSearchParams(window.location.search);
-    var utmKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','sck','src'];
-    utmKeys.forEach(function(k){
-      var v=params.get(k);
-      if(v) data[k]=v;
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','sck','src'].forEach(function(k){
+      var v=params.get(k);if(v) data[k]=v;
     });
 
-    // TODO: Replace with actual checkout/VSL URL
     var redirectUrl='#CHECKOUT_URL';
-
-    // Simulate brief delay then redirect
     setTimeout(function(){
       var qs=new URLSearchParams(data).toString();
       window.location.href=redirectUrl+(redirectUrl.indexOf('?')>-1?'&':'?')+qs;
@@ -540,13 +396,12 @@ color:#ef4444;
 })();
 </script>
 
-<!-- Pixel UTMify (substituir pixelId quando disponivel) -->
+<!-- Pixel UTMify (ativar quando tiver pixelId) -->
 <!--
 <script>
 window.pixelId="SEU_PIXEL_ID_AQUI";
 var a=document.createElement("script");
-a.setAttribute("async","");
-a.setAttribute("defer","");
+a.setAttribute("async","");a.setAttribute("defer","");
 a.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");
 document.head.appendChild(a);
 </script>
