@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SALUTE</title>
+  <meta name="description" content="Aggiornamenti quotidiani su benessere e salute">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: #a70c0c;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .top-bar h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .top-bar .menu-icon {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* ===== TICKER ===== */
+    .ticker {
+      background: #8b0000;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .ticker-content {
+      display: inline-block;
+      animation: scroll-ticker 25s linear infinite;
+    }
+    @keyframes scroll-ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== BYLINE ===== */
+    .byline {
+      padding: 16px 24px 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .byline .author {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .byline .date {
+      font-size: 12px;
+      color: #a70c0c;
+      margin-top: 2px;
+    }
+
+    /* ===== HEADLINE ===== */
+    .headline-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 24px 16px;
+      text-align: center;
+    }
+    .headline-section .subtitle {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    .headline-section h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #1a1a1a;
+    }
+    .headline-section h2 .highlight {
+      color: #a70c0c;
+      font-weight: 700;
+    }
+
+    /* ===== VIDEO ===== */
+    .video-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 16px 24px 32px;
+    }
+    .video-container {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      background: #000;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ===== MEDIA LOGOS ===== */
+    .media-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 24px;
+      border-top: 1px solid #e5e5e5;
+      max-width: 700px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .media-logos span {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .top-bar h1 { font-size: 22px; letter-spacing: 3px; }
+      .headline-section h2 { font-size: 22px; }
+      .headline-section .subtitle { font-size: 14px; }
+      .media-logos { gap: 20px; }
+      .media-logos span { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+      <h1>SALUTE</h1>
+      <div class="menu-icon">&#9776;</div>
+    </div>
+
+    <!-- ===== TICKER ===== -->
+    <div class="ticker">
+      <div class="ticker-content">Aggiornamenti quotidiani su benessere e salute - Aggiornamenti quotidiani su benessere e salute - Aggiornamenti quotidiani su benessere e salute - Aggiornamenti quotidiani su benessere e salute</div>
+    </div>
+
+    <!-- ===== BYLINE ===== -->
+    <div class="byline">
+      <p class="author">By Iader Fabbri</p>
+      <p class="date">Aggiornato 30 minuti fa <span id="date"></span></p>
+    </div>
+
+    <!-- ===== HEADLINE ===== -->
+    <div class="headline-section">
+      <p class="subtitle">Il nutrizionista pi&ugrave; famoso d'Italia rivela...</p>
+      <h2>Il nuovo <span class="highlight">&ldquo;Trucco del Ghiaccio e della Gelatina&rdquo;</span> imita gli effetti dimagranti del Mounjaro, al 100% naturale e senza effetti collaterali!</h2>
+    </div>
+
+    <!-- ===== VIDEO ===== -->
+    <div class="video-section">
+      <div class="video-container">
+        <!-- VTurb player será inserido aqui -->
+      </div>
+    </div>
+
+    <!-- ===== MEDIA LOGOS ===== -->
+    <div class="media-logos">
+      <span>The New York Times</span>
+      <span>CBS</span>
+      <span>abc</span>
+      <span>FOX</span>
+      <span>CNN</span>
+    </div>
+  </main>
+
+  <!-- Date Script -->
+  <script>
+    (function() {
+      var now = new Date();
+      var d = now.getDate().toString().padStart(2,'0');
+      var m = (now.getMonth()+1).toString().padStart(2,'0');
+      var y = now.getFullYear();
+      document.getElementById('date').textContent = d + '/' + m + '/' + y;
+    })();
+  </script>
+
+  <!-- Pixel UTMify -->
+  <script>
+    window.pixelId = "";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+</body>
+</html>
